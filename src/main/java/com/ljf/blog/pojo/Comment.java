@@ -9,9 +9,9 @@ public class Comment {
 
     private String author;
 
-    private Integer author_id;
+    private Integer authorId;
 
-    private Integer owner_id;
+    private Integer ownerId;
 
     private String mail;
 
@@ -61,20 +61,20 @@ public class Comment {
         this.author = author == null ? null : author.trim();
     }
 
-    public Integer getAuthor_id() {
-        return author_id;
+    public Integer getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor_id(Integer author_id) {
-        this.author_id = author_id;
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
-    public Integer getOwner_id() {
-        return owner_id;
+    public Integer getOwnerId() {
+        return ownerId;
     }
 
-    public void setOwner_id(Integer owner_id) {
-        this.owner_id = owner_id;
+    public void setOwnerId(Integer ownerId) {
+        this.ownerId = ownerId;
     }
 
     public String getMail() {

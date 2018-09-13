@@ -47,42 +47,42 @@
         <!-- 指定数据库表，要生成哪些表，就写哪些表，要和数据库中对应，不能写错！ -->
         <table tableName="t_users" domainObjectName="User" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_contents" domainObjectName="Content" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_comments" domainObjectName="Comment" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_metas" domainObjectName="Meta" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_relationships" domainObjectName="Relationship" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_logs" domainObjectName="Log" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_attaches" domainObjectName="Attach" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
         <table tableName="t_options" domainObjectName="Option" >
             <property name="my.isgen.usekeys" value="true"/>
-            <property name="useActualColumnNames" value="true"/>
+            <property name="useActualColumnNames" value="false"/>
         </table>
 
     </context>

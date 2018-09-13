@@ -424,63 +424,63 @@ public class ContentExample {
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idIsNull() {
+        public Criteria andAuthorIdIsNull() {
             addCriterion("author_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idIsNotNull() {
+        public Criteria andAuthorIdIsNotNull() {
             addCriterion("author_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idEqualTo(Integer value) {
-            addCriterion("author_id =", value, "author_id");
+        public Criteria andAuthorIdEqualTo(Integer value) {
+            addCriterion("author_id =", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idNotEqualTo(Integer value) {
-            addCriterion("author_id <>", value, "author_id");
+        public Criteria andAuthorIdNotEqualTo(Integer value) {
+            addCriterion("author_id <>", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idGreaterThan(Integer value) {
-            addCriterion("author_id >", value, "author_id");
+        public Criteria andAuthorIdGreaterThan(Integer value) {
+            addCriterion("author_id >", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("author_id >=", value, "author_id");
+        public Criteria andAuthorIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("author_id >=", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idLessThan(Integer value) {
-            addCriterion("author_id <", value, "author_id");
+        public Criteria andAuthorIdLessThan(Integer value) {
+            addCriterion("author_id <", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idLessThanOrEqualTo(Integer value) {
-            addCriterion("author_id <=", value, "author_id");
+        public Criteria andAuthorIdLessThanOrEqualTo(Integer value) {
+            addCriterion("author_id <=", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idIn(List<Integer> values) {
-            addCriterion("author_id in", values, "author_id");
+        public Criteria andAuthorIdIn(List<Integer> values) {
+            addCriterion("author_id in", values, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idNotIn(List<Integer> values) {
-            addCriterion("author_id not in", values, "author_id");
+        public Criteria andAuthorIdNotIn(List<Integer> values) {
+            addCriterion("author_id not in", values, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idBetween(Integer value1, Integer value2) {
-            addCriterion("author_id between", value1, value2, "author_id");
+        public Criteria andAuthorIdBetween(Integer value1, Integer value2) {
+            addCriterion("author_id between", value1, value2, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idNotBetween(Integer value1, Integer value2) {
-            addCriterion("author_id not between", value1, value2, "author_id");
+        public Criteria andAuthorIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("author_id not between", value1, value2, "authorId");
             return (Criteria) this;
         }
 
@@ -764,73 +764,73 @@ public class ContentExample {
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgIsNull() {
+        public Criteria andThumbimgIsNull() {
             addCriterion("thumbImg is null");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgIsNotNull() {
+        public Criteria andThumbimgIsNotNull() {
             addCriterion("thumbImg is not null");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgEqualTo(String value) {
-            addCriterion("thumbImg =", value, "thumbImg");
+        public Criteria andThumbimgEqualTo(String value) {
+            addCriterion("thumbImg =", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgNotEqualTo(String value) {
-            addCriterion("thumbImg <>", value, "thumbImg");
+        public Criteria andThumbimgNotEqualTo(String value) {
+            addCriterion("thumbImg <>", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgGreaterThan(String value) {
-            addCriterion("thumbImg >", value, "thumbImg");
+        public Criteria andThumbimgGreaterThan(String value) {
+            addCriterion("thumbImg >", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgGreaterThanOrEqualTo(String value) {
-            addCriterion("thumbImg >=", value, "thumbImg");
+        public Criteria andThumbimgGreaterThanOrEqualTo(String value) {
+            addCriterion("thumbImg >=", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgLessThan(String value) {
-            addCriterion("thumbImg <", value, "thumbImg");
+        public Criteria andThumbimgLessThan(String value) {
+            addCriterion("thumbImg <", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgLessThanOrEqualTo(String value) {
-            addCriterion("thumbImg <=", value, "thumbImg");
+        public Criteria andThumbimgLessThanOrEqualTo(String value) {
+            addCriterion("thumbImg <=", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgLike(String value) {
-            addCriterion("thumbImg like", value, "thumbImg");
+        public Criteria andThumbimgLike(String value) {
+            addCriterion("thumbImg like", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgNotLike(String value) {
-            addCriterion("thumbImg not like", value, "thumbImg");
+        public Criteria andThumbimgNotLike(String value) {
+            addCriterion("thumbImg not like", value, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgIn(List<String> values) {
-            addCriterion("thumbImg in", values, "thumbImg");
+        public Criteria andThumbimgIn(List<String> values) {
+            addCriterion("thumbImg in", values, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgNotIn(List<String> values) {
-            addCriterion("thumbImg not in", values, "thumbImg");
+        public Criteria andThumbimgNotIn(List<String> values) {
+            addCriterion("thumbImg not in", values, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgBetween(String value1, String value2) {
-            addCriterion("thumbImg between", value1, value2, "thumbImg");
+        public Criteria andThumbimgBetween(String value1, String value2) {
+            addCriterion("thumbImg between", value1, value2, "thumbimg");
             return (Criteria) this;
         }
 
-        public Criteria andThumbImgNotBetween(String value1, String value2) {
-            addCriterion("thumbImg not between", value1, value2, "thumbImg");
+        public Criteria andThumbimgNotBetween(String value1, String value2) {
+            addCriterion("thumbImg not between", value1, value2, "thumbimg");
             return (Criteria) this;
         }
 
@@ -894,243 +894,243 @@ public class ContentExample {
             return (Criteria) this;
         }
 
-        public Criteria andComments_numIsNull() {
+        public Criteria andCommentsNumIsNull() {
             addCriterion("comments_num is null");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numIsNotNull() {
+        public Criteria andCommentsNumIsNotNull() {
             addCriterion("comments_num is not null");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numEqualTo(Integer value) {
-            addCriterion("comments_num =", value, "comments_num");
+        public Criteria andCommentsNumEqualTo(Integer value) {
+            addCriterion("comments_num =", value, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numNotEqualTo(Integer value) {
-            addCriterion("comments_num <>", value, "comments_num");
+        public Criteria andCommentsNumNotEqualTo(Integer value) {
+            addCriterion("comments_num <>", value, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numGreaterThan(Integer value) {
-            addCriterion("comments_num >", value, "comments_num");
+        public Criteria andCommentsNumGreaterThan(Integer value) {
+            addCriterion("comments_num >", value, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numGreaterThanOrEqualTo(Integer value) {
-            addCriterion("comments_num >=", value, "comments_num");
+        public Criteria andCommentsNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("comments_num >=", value, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numLessThan(Integer value) {
-            addCriterion("comments_num <", value, "comments_num");
+        public Criteria andCommentsNumLessThan(Integer value) {
+            addCriterion("comments_num <", value, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numLessThanOrEqualTo(Integer value) {
-            addCriterion("comments_num <=", value, "comments_num");
+        public Criteria andCommentsNumLessThanOrEqualTo(Integer value) {
+            addCriterion("comments_num <=", value, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numIn(List<Integer> values) {
-            addCriterion("comments_num in", values, "comments_num");
+        public Criteria andCommentsNumIn(List<Integer> values) {
+            addCriterion("comments_num in", values, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numNotIn(List<Integer> values) {
-            addCriterion("comments_num not in", values, "comments_num");
+        public Criteria andCommentsNumNotIn(List<Integer> values) {
+            addCriterion("comments_num not in", values, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numBetween(Integer value1, Integer value2) {
-            addCriterion("comments_num between", value1, value2, "comments_num");
+        public Criteria andCommentsNumBetween(Integer value1, Integer value2) {
+            addCriterion("comments_num between", value1, value2, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andComments_numNotBetween(Integer value1, Integer value2) {
-            addCriterion("comments_num not between", value1, value2, "comments_num");
+        public Criteria andCommentsNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("comments_num not between", value1, value2, "commentsNum");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentIsNull() {
+        public Criteria andAllowCommentIsNull() {
             addCriterion("allow_comment is null");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentIsNotNull() {
+        public Criteria andAllowCommentIsNotNull() {
             addCriterion("allow_comment is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentEqualTo(Boolean value) {
-            addCriterion("allow_comment =", value, "allow_comment");
+        public Criteria andAllowCommentEqualTo(Boolean value) {
+            addCriterion("allow_comment =", value, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentNotEqualTo(Boolean value) {
-            addCriterion("allow_comment <>", value, "allow_comment");
+        public Criteria andAllowCommentNotEqualTo(Boolean value) {
+            addCriterion("allow_comment <>", value, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentGreaterThan(Boolean value) {
-            addCriterion("allow_comment >", value, "allow_comment");
+        public Criteria andAllowCommentGreaterThan(Boolean value) {
+            addCriterion("allow_comment >", value, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("allow_comment >=", value, "allow_comment");
+        public Criteria andAllowCommentGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("allow_comment >=", value, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentLessThan(Boolean value) {
-            addCriterion("allow_comment <", value, "allow_comment");
+        public Criteria andAllowCommentLessThan(Boolean value) {
+            addCriterion("allow_comment <", value, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentLessThanOrEqualTo(Boolean value) {
-            addCriterion("allow_comment <=", value, "allow_comment");
+        public Criteria andAllowCommentLessThanOrEqualTo(Boolean value) {
+            addCriterion("allow_comment <=", value, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentIn(List<Boolean> values) {
-            addCriterion("allow_comment in", values, "allow_comment");
+        public Criteria andAllowCommentIn(List<Boolean> values) {
+            addCriterion("allow_comment in", values, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentNotIn(List<Boolean> values) {
-            addCriterion("allow_comment not in", values, "allow_comment");
+        public Criteria andAllowCommentNotIn(List<Boolean> values) {
+            addCriterion("allow_comment not in", values, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentBetween(Boolean value1, Boolean value2) {
-            addCriterion("allow_comment between", value1, value2, "allow_comment");
+        public Criteria andAllowCommentBetween(Boolean value1, Boolean value2) {
+            addCriterion("allow_comment between", value1, value2, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_commentNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("allow_comment not between", value1, value2, "allow_comment");
+        public Criteria andAllowCommentNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("allow_comment not between", value1, value2, "allowComment");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingIsNull() {
+        public Criteria andAllowPingIsNull() {
             addCriterion("allow_ping is null");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingIsNotNull() {
+        public Criteria andAllowPingIsNotNull() {
             addCriterion("allow_ping is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingEqualTo(Boolean value) {
-            addCriterion("allow_ping =", value, "allow_ping");
+        public Criteria andAllowPingEqualTo(Boolean value) {
+            addCriterion("allow_ping =", value, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingNotEqualTo(Boolean value) {
-            addCriterion("allow_ping <>", value, "allow_ping");
+        public Criteria andAllowPingNotEqualTo(Boolean value) {
+            addCriterion("allow_ping <>", value, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingGreaterThan(Boolean value) {
-            addCriterion("allow_ping >", value, "allow_ping");
+        public Criteria andAllowPingGreaterThan(Boolean value) {
+            addCriterion("allow_ping >", value, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("allow_ping >=", value, "allow_ping");
+        public Criteria andAllowPingGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("allow_ping >=", value, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingLessThan(Boolean value) {
-            addCriterion("allow_ping <", value, "allow_ping");
+        public Criteria andAllowPingLessThan(Boolean value) {
+            addCriterion("allow_ping <", value, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingLessThanOrEqualTo(Boolean value) {
-            addCriterion("allow_ping <=", value, "allow_ping");
+        public Criteria andAllowPingLessThanOrEqualTo(Boolean value) {
+            addCriterion("allow_ping <=", value, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingIn(List<Boolean> values) {
-            addCriterion("allow_ping in", values, "allow_ping");
+        public Criteria andAllowPingIn(List<Boolean> values) {
+            addCriterion("allow_ping in", values, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingNotIn(List<Boolean> values) {
-            addCriterion("allow_ping not in", values, "allow_ping");
+        public Criteria andAllowPingNotIn(List<Boolean> values) {
+            addCriterion("allow_ping not in", values, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingBetween(Boolean value1, Boolean value2) {
-            addCriterion("allow_ping between", value1, value2, "allow_ping");
+        public Criteria andAllowPingBetween(Boolean value1, Boolean value2) {
+            addCriterion("allow_ping between", value1, value2, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_pingNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("allow_ping not between", value1, value2, "allow_ping");
+        public Criteria andAllowPingNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("allow_ping not between", value1, value2, "allowPing");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedIsNull() {
+        public Criteria andAllowFeedIsNull() {
             addCriterion("allow_feed is null");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedIsNotNull() {
+        public Criteria andAllowFeedIsNotNull() {
             addCriterion("allow_feed is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedEqualTo(Boolean value) {
-            addCriterion("allow_feed =", value, "allow_feed");
+        public Criteria andAllowFeedEqualTo(Boolean value) {
+            addCriterion("allow_feed =", value, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedNotEqualTo(Boolean value) {
-            addCriterion("allow_feed <>", value, "allow_feed");
+        public Criteria andAllowFeedNotEqualTo(Boolean value) {
+            addCriterion("allow_feed <>", value, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedGreaterThan(Boolean value) {
-            addCriterion("allow_feed >", value, "allow_feed");
+        public Criteria andAllowFeedGreaterThan(Boolean value) {
+            addCriterion("allow_feed >", value, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedGreaterThanOrEqualTo(Boolean value) {
-            addCriterion("allow_feed >=", value, "allow_feed");
+        public Criteria andAllowFeedGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("allow_feed >=", value, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedLessThan(Boolean value) {
-            addCriterion("allow_feed <", value, "allow_feed");
+        public Criteria andAllowFeedLessThan(Boolean value) {
+            addCriterion("allow_feed <", value, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedLessThanOrEqualTo(Boolean value) {
-            addCriterion("allow_feed <=", value, "allow_feed");
+        public Criteria andAllowFeedLessThanOrEqualTo(Boolean value) {
+            addCriterion("allow_feed <=", value, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedIn(List<Boolean> values) {
-            addCriterion("allow_feed in", values, "allow_feed");
+        public Criteria andAllowFeedIn(List<Boolean> values) {
+            addCriterion("allow_feed in", values, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedNotIn(List<Boolean> values) {
-            addCriterion("allow_feed not in", values, "allow_feed");
+        public Criteria andAllowFeedNotIn(List<Boolean> values) {
+            addCriterion("allow_feed not in", values, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedBetween(Boolean value1, Boolean value2) {
-            addCriterion("allow_feed between", value1, value2, "allow_feed");
+        public Criteria andAllowFeedBetween(Boolean value1, Boolean value2) {
+            addCriterion("allow_feed between", value1, value2, "allowFeed");
             return (Criteria) this;
         }
 
-        public Criteria andAllow_feedNotBetween(Boolean value1, Boolean value2) {
-            addCriterion("allow_feed not between", value1, value2, "allow_feed");
+        public Criteria andAllowFeedNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("allow_feed not between", value1, value2, "allowFeed");
             return (Criteria) this;
         }
     }

@@ -354,123 +354,123 @@ public class CommentExample {
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idIsNull() {
+        public Criteria andAuthorIdIsNull() {
             addCriterion("author_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idIsNotNull() {
+        public Criteria andAuthorIdIsNotNull() {
             addCriterion("author_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idEqualTo(Integer value) {
-            addCriterion("author_id =", value, "author_id");
+        public Criteria andAuthorIdEqualTo(Integer value) {
+            addCriterion("author_id =", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idNotEqualTo(Integer value) {
-            addCriterion("author_id <>", value, "author_id");
+        public Criteria andAuthorIdNotEqualTo(Integer value) {
+            addCriterion("author_id <>", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idGreaterThan(Integer value) {
-            addCriterion("author_id >", value, "author_id");
+        public Criteria andAuthorIdGreaterThan(Integer value) {
+            addCriterion("author_id >", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("author_id >=", value, "author_id");
+        public Criteria andAuthorIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("author_id >=", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idLessThan(Integer value) {
-            addCriterion("author_id <", value, "author_id");
+        public Criteria andAuthorIdLessThan(Integer value) {
+            addCriterion("author_id <", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idLessThanOrEqualTo(Integer value) {
-            addCriterion("author_id <=", value, "author_id");
+        public Criteria andAuthorIdLessThanOrEqualTo(Integer value) {
+            addCriterion("author_id <=", value, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idIn(List<Integer> values) {
-            addCriterion("author_id in", values, "author_id");
+        public Criteria andAuthorIdIn(List<Integer> values) {
+            addCriterion("author_id in", values, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idNotIn(List<Integer> values) {
-            addCriterion("author_id not in", values, "author_id");
+        public Criteria andAuthorIdNotIn(List<Integer> values) {
+            addCriterion("author_id not in", values, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idBetween(Integer value1, Integer value2) {
-            addCriterion("author_id between", value1, value2, "author_id");
+        public Criteria andAuthorIdBetween(Integer value1, Integer value2) {
+            addCriterion("author_id between", value1, value2, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andAuthor_idNotBetween(Integer value1, Integer value2) {
-            addCriterion("author_id not between", value1, value2, "author_id");
+        public Criteria andAuthorIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("author_id not between", value1, value2, "authorId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idIsNull() {
+        public Criteria andOwnerIdIsNull() {
             addCriterion("owner_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idIsNotNull() {
+        public Criteria andOwnerIdIsNotNull() {
             addCriterion("owner_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idEqualTo(Integer value) {
-            addCriterion("owner_id =", value, "owner_id");
+        public Criteria andOwnerIdEqualTo(Integer value) {
+            addCriterion("owner_id =", value, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idNotEqualTo(Integer value) {
-            addCriterion("owner_id <>", value, "owner_id");
+        public Criteria andOwnerIdNotEqualTo(Integer value) {
+            addCriterion("owner_id <>", value, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idGreaterThan(Integer value) {
-            addCriterion("owner_id >", value, "owner_id");
+        public Criteria andOwnerIdGreaterThan(Integer value) {
+            addCriterion("owner_id >", value, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idGreaterThanOrEqualTo(Integer value) {
-            addCriterion("owner_id >=", value, "owner_id");
+        public Criteria andOwnerIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("owner_id >=", value, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idLessThan(Integer value) {
-            addCriterion("owner_id <", value, "owner_id");
+        public Criteria andOwnerIdLessThan(Integer value) {
+            addCriterion("owner_id <", value, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idLessThanOrEqualTo(Integer value) {
-            addCriterion("owner_id <=", value, "owner_id");
+        public Criteria andOwnerIdLessThanOrEqualTo(Integer value) {
+            addCriterion("owner_id <=", value, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idIn(List<Integer> values) {
-            addCriterion("owner_id in", values, "owner_id");
+        public Criteria andOwnerIdIn(List<Integer> values) {
+            addCriterion("owner_id in", values, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idNotIn(List<Integer> values) {
-            addCriterion("owner_id not in", values, "owner_id");
+        public Criteria andOwnerIdNotIn(List<Integer> values) {
+            addCriterion("owner_id not in", values, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idBetween(Integer value1, Integer value2) {
-            addCriterion("owner_id between", value1, value2, "owner_id");
+        public Criteria andOwnerIdBetween(Integer value1, Integer value2) {
+            addCriterion("owner_id between", value1, value2, "ownerId");
             return (Criteria) this;
         }
 
-        public Criteria andOwner_idNotBetween(Integer value1, Integer value2) {
-            addCriterion("owner_id not between", value1, value2, "owner_id");
+        public Criteria andOwnerIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("owner_id not between", value1, value2, "ownerId");
             return (Criteria) this;
         }
 

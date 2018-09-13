@@ -9,7 +9,7 @@ public class Attach {
 
     private String fkey;
 
-    private Integer author_id;
+    private Integer authorId;
 
     private Integer created;
 
@@ -45,12 +45,12 @@ public class Attach {
         this.fkey = fkey == null ? null : fkey.trim();
     }
 
-    public Integer getAuthor_id() {
-        return author_id;
+    public Integer getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor_id(Integer author_id) {
-        this.author_id = author_id;
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
     public Integer getCreated() {

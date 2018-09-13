@@ -9,9 +9,9 @@ public class User {
 
     private String email;
 
-    private String home_url;
+    private String homeUrl;
 
-    private String screen_name;
+    private String screenName;
 
     private Integer created;
 
@@ -19,7 +19,7 @@ public class User {
 
     private Integer logged;
 
-    private String group_name;
+    private String groupName;
 
     public Integer getUid() {
         return uid;
@@ -53,20 +53,20 @@ public class User {
         this.email = email == null ? null : email.trim();
     }
 
-    public String getHome_url() {
-        return home_url;
+    public String getHomeUrl() {
+        return homeUrl;
     }
 
-    public void setHome_url(String home_url) {
-        this.home_url = home_url == null ? null : home_url.trim();
+    public void setHomeUrl(String homeUrl) {
+        this.homeUrl = homeUrl == null ? null : homeUrl.trim();
     }
 
-    public String getScreen_name() {
-        return screen_name;
+    public String getScreenName() {
+        return screenName;
     }
 
-    public void setScreen_name(String screen_name) {
-        this.screen_name = screen_name == null ? null : screen_name.trim();
+    public void setScreenName(String screenName) {
+        this.screenName = screenName == null ? null : screenName.trim();
     }
 
     public Integer getCreated() {
@@ -93,11 +93,11 @@ public class User {
         this.logged = logged;
     }
 
-    public String getGroup_name() {
-        return group_name;
+    public String getGroupName() {
+        return groupName;
     }
 
-    public void setGroup_name(String group_name) {
-        this.group_name = group_name == null ? null : group_name.trim();
+    public void setGroupName(String groupName) {
+        this.groupName = groupName == null ? null : groupName.trim();
     }
 }

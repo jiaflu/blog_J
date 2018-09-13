@@ -2,9 +2,8 @@ package com.ljf.blog.mapper;
 
 import com.ljf.blog.pojo.Comment;
 import com.ljf.blog.pojo.CommentExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface CommentMapper {
     long countByExample(CommentExample example);

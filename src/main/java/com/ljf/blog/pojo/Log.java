@@ -7,7 +7,7 @@ public class Log {
 
     private String data;
 
-    private Integer author_id;
+    private Integer authorId;
 
     private String ip;
 
@@ -37,12 +37,12 @@ public class Log {
         this.data = data == null ? null : data.trim();
     }
 
-    public Integer getAuthor_id() {
-        return author_id;
+    public Integer getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor_id(Integer author_id) {
-        this.author_id = author_id;
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
     public String getIp() {

@@ -2,9 +2,8 @@ package com.ljf.blog.mapper;
 
 import com.ljf.blog.pojo.Attach;
 import com.ljf.blog.pojo.AttachExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface AttachMapper {
     long countByExample(AttachExample example);

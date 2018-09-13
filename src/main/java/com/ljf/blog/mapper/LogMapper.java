@@ -2,9 +2,8 @@ package com.ljf.blog.mapper;
 
 import com.ljf.blog.pojo.Log;
 import com.ljf.blog.pojo.LogExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface LogMapper {
     long countByExample(LogExample example);

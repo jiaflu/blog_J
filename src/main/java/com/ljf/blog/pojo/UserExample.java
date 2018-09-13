@@ -374,143 +374,143 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlIsNull() {
+        public Criteria andHomeUrlIsNull() {
             addCriterion("home_url is null");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlIsNotNull() {
+        public Criteria andHomeUrlIsNotNull() {
             addCriterion("home_url is not null");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlEqualTo(String value) {
-            addCriterion("home_url =", value, "home_url");
+        public Criteria andHomeUrlEqualTo(String value) {
+            addCriterion("home_url =", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlNotEqualTo(String value) {
-            addCriterion("home_url <>", value, "home_url");
+        public Criteria andHomeUrlNotEqualTo(String value) {
+            addCriterion("home_url <>", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlGreaterThan(String value) {
-            addCriterion("home_url >", value, "home_url");
+        public Criteria andHomeUrlGreaterThan(String value) {
+            addCriterion("home_url >", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlGreaterThanOrEqualTo(String value) {
-            addCriterion("home_url >=", value, "home_url");
+        public Criteria andHomeUrlGreaterThanOrEqualTo(String value) {
+            addCriterion("home_url >=", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlLessThan(String value) {
-            addCriterion("home_url <", value, "home_url");
+        public Criteria andHomeUrlLessThan(String value) {
+            addCriterion("home_url <", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlLessThanOrEqualTo(String value) {
-            addCriterion("home_url <=", value, "home_url");
+        public Criteria andHomeUrlLessThanOrEqualTo(String value) {
+            addCriterion("home_url <=", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlLike(String value) {
-            addCriterion("home_url like", value, "home_url");
+        public Criteria andHomeUrlLike(String value) {
+            addCriterion("home_url like", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlNotLike(String value) {
-            addCriterion("home_url not like", value, "home_url");
+        public Criteria andHomeUrlNotLike(String value) {
+            addCriterion("home_url not like", value, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlIn(List<String> values) {
-            addCriterion("home_url in", values, "home_url");
+        public Criteria andHomeUrlIn(List<String> values) {
+            addCriterion("home_url in", values, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlNotIn(List<String> values) {
-            addCriterion("home_url not in", values, "home_url");
+        public Criteria andHomeUrlNotIn(List<String> values) {
+            addCriterion("home_url not in", values, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlBetween(String value1, String value2) {
-            addCriterion("home_url between", value1, value2, "home_url");
+        public Criteria andHomeUrlBetween(String value1, String value2) {
+            addCriterion("home_url between", value1, value2, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andHome_urlNotBetween(String value1, String value2) {
-            addCriterion("home_url not between", value1, value2, "home_url");
+        public Criteria andHomeUrlNotBetween(String value1, String value2) {
+            addCriterion("home_url not between", value1, value2, "homeUrl");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameIsNull() {
+        public Criteria andScreenNameIsNull() {
             addCriterion("screen_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameIsNotNull() {
+        public Criteria andScreenNameIsNotNull() {
             addCriterion("screen_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameEqualTo(String value) {
-            addCriterion("screen_name =", value, "screen_name");
+        public Criteria andScreenNameEqualTo(String value) {
+            addCriterion("screen_name =", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameNotEqualTo(String value) {
-            addCriterion("screen_name <>", value, "screen_name");
+        public Criteria andScreenNameNotEqualTo(String value) {
+            addCriterion("screen_name <>", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameGreaterThan(String value) {
-            addCriterion("screen_name >", value, "screen_name");
+        public Criteria andScreenNameGreaterThan(String value) {
+            addCriterion("screen_name >", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameGreaterThanOrEqualTo(String value) {
-            addCriterion("screen_name >=", value, "screen_name");
+        public Criteria andScreenNameGreaterThanOrEqualTo(String value) {
+            addCriterion("screen_name >=", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameLessThan(String value) {
-            addCriterion("screen_name <", value, "screen_name");
+        public Criteria andScreenNameLessThan(String value) {
+            addCriterion("screen_name <", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameLessThanOrEqualTo(String value) {
-            addCriterion("screen_name <=", value, "screen_name");
+        public Criteria andScreenNameLessThanOrEqualTo(String value) {
+            addCriterion("screen_name <=", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameLike(String value) {
-            addCriterion("screen_name like", value, "screen_name");
+        public Criteria andScreenNameLike(String value) {
+            addCriterion("screen_name like", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameNotLike(String value) {
-            addCriterion("screen_name not like", value, "screen_name");
+        public Criteria andScreenNameNotLike(String value) {
+            addCriterion("screen_name not like", value, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameIn(List<String> values) {
-            addCriterion("screen_name in", values, "screen_name");
+        public Criteria andScreenNameIn(List<String> values) {
+            addCriterion("screen_name in", values, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameNotIn(List<String> values) {
-            addCriterion("screen_name not in", values, "screen_name");
+        public Criteria andScreenNameNotIn(List<String> values) {
+            addCriterion("screen_name not in", values, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameBetween(String value1, String value2) {
-            addCriterion("screen_name between", value1, value2, "screen_name");
+        public Criteria andScreenNameBetween(String value1, String value2) {
+            addCriterion("screen_name between", value1, value2, "screenName");
             return (Criteria) this;
         }
 
-        public Criteria andScreen_nameNotBetween(String value1, String value2) {
-            addCriterion("screen_name not between", value1, value2, "screen_name");
+        public Criteria andScreenNameNotBetween(String value1, String value2) {
+            addCriterion("screen_name not between", value1, value2, "screenName");
             return (Criteria) this;
         }
 
@@ -694,73 +694,73 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameIsNull() {
+        public Criteria andGroupNameIsNull() {
             addCriterion("group_name is null");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameIsNotNull() {
+        public Criteria andGroupNameIsNotNull() {
             addCriterion("group_name is not null");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameEqualTo(String value) {
-            addCriterion("group_name =", value, "group_name");
+        public Criteria andGroupNameEqualTo(String value) {
+            addCriterion("group_name =", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameNotEqualTo(String value) {
-            addCriterion("group_name <>", value, "group_name");
+        public Criteria andGroupNameNotEqualTo(String value) {
+            addCriterion("group_name <>", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameGreaterThan(String value) {
-            addCriterion("group_name >", value, "group_name");
+        public Criteria andGroupNameGreaterThan(String value) {
+            addCriterion("group_name >", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameGreaterThanOrEqualTo(String value) {
-            addCriterion("group_name >=", value, "group_name");
+        public Criteria andGroupNameGreaterThanOrEqualTo(String value) {
+            addCriterion("group_name >=", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameLessThan(String value) {
-            addCriterion("group_name <", value, "group_name");
+        public Criteria andGroupNameLessThan(String value) {
+            addCriterion("group_name <", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameLessThanOrEqualTo(String value) {
-            addCriterion("group_name <=", value, "group_name");
+        public Criteria andGroupNameLessThanOrEqualTo(String value) {
+            addCriterion("group_name <=", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameLike(String value) {
-            addCriterion("group_name like", value, "group_name");
+        public Criteria andGroupNameLike(String value) {
+            addCriterion("group_name like", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameNotLike(String value) {
-            addCriterion("group_name not like", value, "group_name");
+        public Criteria andGroupNameNotLike(String value) {
+            addCriterion("group_name not like", value, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameIn(List<String> values) {
-            addCriterion("group_name in", values, "group_name");
+        public Criteria andGroupNameIn(List<String> values) {
+            addCriterion("group_name in", values, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameNotIn(List<String> values) {
-            addCriterion("group_name not in", values, "group_name");
+        public Criteria andGroupNameNotIn(List<String> values) {
+            addCriterion("group_name not in", values, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameBetween(String value1, String value2) {
-            addCriterion("group_name between", value1, value2, "group_name");
+        public Criteria andGroupNameBetween(String value1, String value2) {
+            addCriterion("group_name between", value1, value2, "groupName");
             return (Criteria) this;
         }
 
-        public Criteria andGroup_nameNotBetween(String value1, String value2) {
-            addCriterion("group_name not between", value1, value2, "group_name");
+        public Criteria andGroupNameNotBetween(String value1, String value2) {
+            addCriterion("group_name not between", value1, value2, "groupName");
             return (Criteria) this;
         }
     }

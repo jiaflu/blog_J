@@ -2,9 +2,8 @@ package com.ljf.blog.mapper;
 
 import com.ljf.blog.pojo.Option;
 import com.ljf.blog.pojo.OptionExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface OptionMapper {
     long countByExample(OptionExample example);

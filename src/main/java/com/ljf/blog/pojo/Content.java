@@ -11,7 +11,7 @@ public class Content {
 
     private Integer modified;
 
-    private Integer author_id;
+    private Integer authorId;
 
     private String type;
 
@@ -21,17 +21,17 @@ public class Content {
 
     private String categories;
 
-    private String thumbImg;
+    private String thumbimg;
 
     private Integer hits;
 
-    private Integer comments_num;
+    private Integer commentsNum;
 
-    private Boolean allow_comment;
+    private Boolean allowComment;
 
-    private Boolean allow_ping;
+    private Boolean allowPing;
 
-    private Boolean allow_feed;
+    private Boolean allowFeed;
 
     private String content;
 
@@ -75,12 +75,12 @@ public class Content {
         this.modified = modified;
     }
 
-    public Integer getAuthor_id() {
-        return author_id;
+    public Integer getAuthorId() {
+        return authorId;
     }
 
-    public void setAuthor_id(Integer author_id) {
-        this.author_id = author_id;
+    public void setAuthorId(Integer authorId) {
+        this.authorId = authorId;
     }
 
     public String getType() {
@@ -115,12 +115,12 @@ public class Content {
         this.categories = categories == null ? null : categories.trim();
     }
 
-    public String getThumbImg() {
-        return thumbImg;
+    public String getThumbimg() {
+        return thumbimg;
     }
 
-    public void setThumbImg(String thumbImg) {
-        this.thumbImg = thumbImg == null ? null : thumbImg.trim();
+    public void setThumbimg(String thumbimg) {
+        this.thumbimg = thumbimg == null ? null : thumbimg.trim();
     }
 
     public Integer getHits() {
@@ -131,36 +131,36 @@ public class Content {
         this.hits = hits;
     }
 
-    public Integer getComments_num() {
-        return comments_num;
+    public Integer getCommentsNum() {
+        return commentsNum;
     }
 
-    public void setComments_num(Integer comments_num) {
-        this.comments_num = comments_num;
+    public void setCommentsNum(Integer commentsNum) {
+        this.commentsNum = commentsNum;
     }
 
-    public Boolean getAllow_comment() {
-        return allow_comment;
+    public Boolean getAllowComment() {
+        return allowComment;
     }
 
-    public void setAllow_comment(Boolean allow_comment) {
-        this.allow_comment = allow_comment;
+    public void setAllowComment(Boolean allowComment) {
+        this.allowComment = allowComment;
     }
 
-    public Boolean getAllow_ping() {
-        return allow_ping;
+    public Boolean getAllowPing() {
+        return allowPing;
     }
 
-    public void setAllow_ping(Boolean allow_ping) {
-        this.allow_ping = allow_ping;
+    public void setAllowPing(Boolean allowPing) {
+        this.allowPing = allowPing;
     }
 
-    public Boolean getAllow_feed() {
-        return allow_feed;
+    public Boolean getAllowFeed() {
+        return allowFeed;
     }
 
-    public void setAllow_feed(Boolean allow_feed) {
-        this.allow_feed = allow_feed;
+    public void setAllowFeed(Boolean allowFeed) {
+        this.allowFeed = allowFeed;
     }
 
     public String getContent() {

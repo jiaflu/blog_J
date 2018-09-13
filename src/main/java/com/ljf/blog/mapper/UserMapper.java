@@ -2,9 +2,8 @@ package com.ljf.blog.mapper;
 
 import com.ljf.blog.pojo.User;
 import com.ljf.blog.pojo.UserExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
     long countByExample(UserExample example);

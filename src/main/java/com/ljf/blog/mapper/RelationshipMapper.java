@@ -2,9 +2,8 @@ package com.ljf.blog.mapper;
 
 import com.ljf.blog.pojo.RelationshipExample;
 import com.ljf.blog.pojo.RelationshipKey;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface RelationshipMapper {
     long countByExample(RelationshipExample example);
