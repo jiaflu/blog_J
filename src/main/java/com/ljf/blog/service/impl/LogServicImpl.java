@@ -46,8 +46,8 @@ public class LogServicImpl implements LogService {
         }
         LogExample example = new LogExample();
         example.setOrderByClause("id desc");
-        //最新的数据在最后面
-        PageHelper.startPage((page-1) * limit, limit);
+        //最新的数据在最后面,页数的起始页为1
+        PageHelper.startPage(page-1, limit);
         List<Log> logs = logMapper.selectByExample(example);
         return logs;
 

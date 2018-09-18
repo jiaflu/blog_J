@@ -16,18 +16,18 @@ public interface ContentService {
 
     /**
      * 查询文章返回对跳数据
-     * @param p
+     * @param page
      * @param limit
      * @return
      */
-    PageInfo<Content> getContents(int p, int limit);
-//
-//    /**
-//     * 根据id或slug获取文章
-//     * @param id
-//     * @return
-//     */
-//    Content getContent(String id);
+    PageInfo<Content> getContents(int page, int limit);
+
+    /**
+     * 根据id读取文章
+     * @param id
+     * @return
+     */
+    Content getContent(String id);
 //
 //    /**
 //     * 更新文章
@@ -62,11 +62,11 @@ public interface ContentService {
 //     */
 //    PageInfo<Content> getArticlesWithpage(ContentExample contentExample, int page, int limit);
 //
-//    /**
-//     * 根据id删除文章
-//     * @param cid
-//     */
-//    void delete(int cid);
+    /**
+     * 根据id删除文章
+     * @param cid
+     */
+    void delete(int cid);
 //
 //    void updateArticles(Content content);
 //

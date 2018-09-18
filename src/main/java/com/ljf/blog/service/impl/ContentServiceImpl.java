@@ -9,6 +9,7 @@ import com.ljf.blog.pojo.Content;
 import com.ljf.blog.pojo.ContentExample;
 import com.ljf.blog.service.ContentService;
 import com.ljf.blog.util.DateKit;
+import com.ljf.blog.util.Tools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -62,15 +63,42 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public PageInfo<Content> getContents(int p, int limit) {
+    public PageInfo<Content> getContents(int page, int limit) {
         ContentExample contentExample = new ContentExample();
-        contentExample.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
+        //contentExample.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
         contentExample.setOrderByClause("created desc");
-        PageHelper.startPage(p, limit);
+        PageHelper.startPage(page, limit);
         List<Content> contentList = contentMapper.selectByExample(contentExample);
         PageInfo<Content> pageInfo = new PageInfo<>(contentList);
         return pageInfo;
     }
+
+    @Override
+    public Content getContent(String id) {
+        //后期需添加Redis，先从redis中读取文章，若无，则从数据库中读
+        /*
+
+         */
+
+        Content content = null;
+        if (StringUtils.isNotBlank(id)) {
+            if (Tools.isNumber(id)) {
+                content = contentMapper.selectByPrimaryKey(Integer.valueOf(id));
+                if (null != content) {
+                    content.setHits(content.getHits() + 1);
+                    contentMapper.updateByPrimaryKey(content);
+                }
+            }
+        }
+        return content;
+    }
+
+
+    @Override
+    public void delete(int cid) {
+        contentMapper.deleteByPrimaryKey(cid);
+    }
+
 
 
     private void  checkContent(Content content) throws TipException {

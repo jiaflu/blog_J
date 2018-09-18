@@ -1,11 +1,13 @@
 package com.ljf.blog;
 
 import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.ljf.blog.dto.LogActions;
 import com.ljf.blog.mapper.ContentMapper;
 import com.ljf.blog.pojo.Content;
 import com.ljf.blog.pojo.Log;
 import com.ljf.blog.pojo.User;
+import com.ljf.blog.service.ContentService;
 import com.ljf.blog.service.LogService;
 import com.ljf.blog.service.TestService;
 import com.ljf.blog.service.UserService;
@@ -28,18 +30,18 @@ public class BlogJApplicationTests {
 	@Autowired
 	LogService logService;
 	@Autowired
-	ContentMapper contentMapper;
+	ContentService contentService;
 
 
 	@Test
 	public void test() {
 		Content content = new Content();
-		content.setTitle("blog_test");
-		content.setHits(100);
+		content.setTitle("blog_test3");
+		content.setHits(121);
 		content.setCategories("springboot");
 		content.setStatus("已发布");
-		content.setSlug("slugg");
-		contentMapper.insert(content);
+		content.setSlug("qwe");
+		//contentMapper.insert(content);
 		testService.say();
 	}
 
@@ -58,17 +60,24 @@ public class BlogJApplicationTests {
 
 	@Test
 	public void listLogs() {
-//		for (int i=0; i < 50; i++) {
-//			logService.add(LogActions.LOGIN.getAction(), "i: " + i, "0:0:0:0:0:0:0:1", 2);
-//		}
-		List<Log> logs = logService.list(0,5);
-		for (Log l : logs) {
+		List<Log> logs1 = logService.list(1,3);
+		for (Log l : logs1) {
 			System.out.println(l.getCreated());
 		}
 		System.out.println("-------------------------");
-		logs = logService.list(1,5);
-		for (Log l : logs) {
+		List<Log> logs2 = logService.list(2,3);
+		for (Log l : logs2) {
 			System.out.println(l.getCreated());
+		}
+	}
+
+	@Test
+	public void listContents() {
+		PageInfo<Content> pageInfo = contentService.getContents(1,5);
+		System.out.println(pageInfo.getSize());
+		List<Content> contentList = pageInfo.getList();
+		for (Content content: contentList) {
+			System.out.println(content.getTitle());
 		}
 	}
 }
