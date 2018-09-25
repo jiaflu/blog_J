@@ -8,9 +8,38 @@ import com.ljf.blog.pojo.Comment;
  */
 public interface CommentService {
 
+    /**
+     * 插入评论
+     * @param comment
+     */
     void insertComment(Comment comment);
 
-    PageInfo<Comment> getComments(int cid, int page, int limit);
+    /**
+     * 获取对应文章下面的评论
+     * @param cid
+     * @param page
+     * @param limit
+     * @return
+     */
+    PageInfo<Comment> getComments(Integer cid, int page, int limit);
 
+    /**
+     * 根据主键查询评论
+     * @param coid
+     * @return
+     */
+    Comment getCommentById(Integer coid);
 
+    /**
+     * 删除评论
+     * @param coid
+     * @param cid
+     */
+    void delete(Integer coid, Integer cid);
+
+    /**
+     * 更新评论
+     * @param comment
+     */
+    void update(Comment comment);
 }

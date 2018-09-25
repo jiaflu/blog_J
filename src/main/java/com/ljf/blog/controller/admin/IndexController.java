@@ -10,6 +10,7 @@ import com.ljf.blog.pojo.User;
 import com.ljf.blog.service.LogService;
 import com.ljf.blog.service.SiteService;
 import com.ljf.blog.service.UserService;
+import com.ljf.blog.util.Commons;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,6 +37,8 @@ public class IndexController {
     LogService logService;
     @Autowired
     SiteService siteService;
+    @Autowired
+    Commons commons;
 
     /**
      * 管理中心起始页
@@ -52,7 +55,7 @@ public class IndexController {
         request.setAttribute("comments", comments);
         request.setAttribute("statistics", statistics);
         request.setAttribute("logs", logs);
-        //model.addAttribute("name", "sadas");
+        request.setAttribute("commons", commons);
         return "admin/index";
     }
 

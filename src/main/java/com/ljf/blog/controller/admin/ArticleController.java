@@ -11,6 +11,7 @@ import com.ljf.blog.pojo.User;
 import com.ljf.blog.service.ContentService;
 import com.ljf.blog.service.LogService;
 import com.ljf.blog.service.MetaService;
+import com.ljf.blog.util.AdminCommons;
 import com.ljf.blog.util.Commons;
 import org.apache.commons.lang3.StringUtils;
 import org.json.HTTP;
@@ -45,6 +46,9 @@ public class ArticleController {
 
     @Autowired
     Commons commons;
+
+    @Autowired
+    AdminCommons adminCommons;
 
     /**
      * 文章列表页面
@@ -89,6 +93,7 @@ public class ArticleController {
         request.setAttribute("contents", content);
         List<Meta> categories = metaService.getMetas(Types.CATEGORY.getType());
         request.setAttribute("categories", categories);
+        request.setAttribute("adminCommons", adminCommons);
         return "admin/article_edit";
     }
 

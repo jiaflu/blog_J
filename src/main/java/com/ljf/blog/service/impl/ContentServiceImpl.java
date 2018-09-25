@@ -5,9 +5,11 @@ import com.github.pagehelper.PageInfo;
 import com.ljf.blog.dto.Types;
 import com.ljf.blog.exception.TipException;
 import com.ljf.blog.mapper.ContentMapper;
+import com.ljf.blog.mapper.MetaMapper;
 import com.ljf.blog.pojo.Content;
 import com.ljf.blog.pojo.ContentExample;
 import com.ljf.blog.service.ContentService;
+import com.ljf.blog.service.MetaService;
 import com.ljf.blog.util.DateKit;
 import com.ljf.blog.util.Tools;
 import org.apache.commons.lang3.StringUtils;
@@ -23,6 +25,8 @@ import java.util.List;
 public class ContentServiceImpl implements ContentService {
     @Autowired
     ContentMapper contentMapper;
+    @Autowired
+    MetaService metaService;
 
     @Override
     public void publish(Content content) {
@@ -53,13 +57,12 @@ public class ContentServiceImpl implements ContentService {
         content.setModified(time);
         content.setHits(0);
         content.setCommentsNum(0);
-        contentMapper.insert(content);
+        Integer cid = contentMapper.insert(content);
 
         String tags = content.getTags();
         String category = content.getCategories();
-        int cid = content.getCid();
 
-        //metaService
+        //metaService.saveMeta(cid,);
     }
 
     @Override
@@ -91,6 +94,12 @@ public class ContentServiceImpl implements ContentService {
             }
         }
         return content;
+    }
+
+    @Override
+    public void update(Content content) {
+        //按主键更新不为null的字段
+        contentMapper.updateByPrimaryKeySelective(content);
     }
 
 

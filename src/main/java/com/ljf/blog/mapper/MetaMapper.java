@@ -3,6 +3,8 @@ package com.ljf.blog.mapper;
 import com.ljf.blog.pojo.Meta;
 import com.ljf.blog.pojo.MetaExample;
 import java.util.List;
+import java.util.Map;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface MetaMapper {
@@ -27,4 +29,5 @@ public interface MetaMapper {
     int updateByPrimaryKeySelective(Meta record);
 
     int updateByPrimaryKey(Meta record);
+
 }

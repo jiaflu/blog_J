@@ -28,12 +28,12 @@ public interface ContentService {
      * @return
      */
     Content getContent(String id);
-//
-//    /**
-//     * 更新文章
-//     * @param content
-//     */
-//    void update(Content content);
+
+    /**
+     * 更新文章
+     * @param content
+     */
+    void update(Content content);
 //
 //    /**
 //     * 查询分类/标签下的文章归档

@@ -240,4 +240,5 @@
       parent = #{parent,jdbcType=INTEGER}
     where mid = #{mid,jdbcType=INTEGER}
   </update>
+
 </mapper>

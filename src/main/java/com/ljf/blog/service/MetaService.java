@@ -22,4 +22,19 @@ public interface MetaService {
      * @return
      */
     List<Meta> getMetas(String type);
+
+
+    /**
+     * 保存
+     * @param type
+     * @param name
+     * @param mid
+     */
+    void saveMeta(String type, String name, Integer mid);
+
+    /**
+     * 删除项目
+     * @param mid
+     */
+    void delete(Integer mid);
 }
