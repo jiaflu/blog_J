@@ -41,12 +41,6 @@ public class AuthController {
     @Autowired
     LogService logService;
 
-    @GetMapping("/test")
-    public String test() {
-        return "admin/test";
-    }
-
-
     @GetMapping("/login")
     public String login() {
         return "admin/login";

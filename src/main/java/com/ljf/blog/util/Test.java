@@ -6,8 +6,12 @@ package com.ljf.blog.util;
 public class Test {
 
     public static void main(String[] args) {
-        String s = "  das add";
-        //s.trim();
-        System.out.print(s.trim());
+        String s = "dasdasdas";
+        new Test().changeStr(s);
+        System.out.println(s);
+    }
+
+    public void changeStr(String str) {
+        str = "123qqq";
     }
 }

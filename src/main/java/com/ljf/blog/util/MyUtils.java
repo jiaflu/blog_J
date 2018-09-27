@@ -60,4 +60,17 @@ public class MyUtils {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX.matcher(emailStr);
         return matcher.find();
     }
+
+    /**
+     * 提取html中的文字
+     *
+     * @param html
+     * @return
+     */
+    public static String htmlToText(String html) {
+        if (StringUtils.isNotBlank(html)) {
+            return html.replaceAll("(?s)<[^>]*>(\\s*<[^>]*>)*", " ");
+        }
+        return "";
+    }
 }

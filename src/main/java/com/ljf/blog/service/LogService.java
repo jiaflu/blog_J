@@ -29,5 +29,5 @@ public interface LogService {
      * @param limit
      * @return
      */
-    List<Log> list(int page, int limit);
+    List<Log> getLogs(int page, int limit);
 }

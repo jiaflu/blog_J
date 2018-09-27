@@ -32,20 +32,6 @@ public class BlogJApplicationTests {
 	@Autowired
 	ContentService contentService;
 
-
-	@Test
-	public void test() {
-		Content content = new Content();
-		content.setTitle("blog_test3");
-		content.setHits(121);
-		content.setCategories("springboot");
-		content.setStatus("已发布");
-		content.setSlug("qwe");
-		//contentMapper.insert(content);
-		testService.say();
-	}
-
-
 	@Test
 	public void loginTest() {
 		String name = "ljf";
@@ -80,4 +66,15 @@ public class BlogJApplicationTests {
 			System.out.println(content.getTitle());
 		}
 	}
+
+	@Test
+	public void test() {
+		try {
+			System.out.println("try");
+			System.exit(1);
+		} finally {
+			System.out.println("finally");
+		}
+	}
+
 }

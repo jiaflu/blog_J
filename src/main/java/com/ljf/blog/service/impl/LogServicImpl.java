@@ -1,6 +1,7 @@
 package com.ljf.blog.service.impl;
 
 import com.github.pagehelper.PageHelper;
+import com.ljf.blog.constant.WebConst;
 import com.ljf.blog.mapper.LogMapper;
 import com.ljf.blog.pojo.Log;
 import com.ljf.blog.pojo.LogExample;
@@ -37,17 +38,17 @@ public class LogServicImpl implements LogService {
     }
 
     @Override
-    public List<Log> list(int page, int limit) {
+    public List<Log> getLogs(int page, int limit) {
         if (page <= 0) {
             page = 1;
         }
-        if (limit < 1 || limit > 9999 ) {
+        if (limit < 1 || limit > WebConst.MAX_POSTS) {
             limit = 10;
         }
         LogExample example = new LogExample();
         example.setOrderByClause("id desc");
         //最新的数据在最后面,页数的起始页为1
-        PageHelper.startPage(page-1, limit);
+        PageHelper.startPage(page, limit);
         List<Log> logs = logMapper.selectByExample(example);
         return logs;
 

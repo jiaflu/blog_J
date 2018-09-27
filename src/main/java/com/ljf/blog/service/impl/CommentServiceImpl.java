@@ -48,6 +48,13 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
+    public PageInfo<Comment> getCommentsWithPage(CommentExample commentExample, int page, int limit) {
+        PageHelper.startPage(page, limit);
+        List<Comment> comments = commentMapper.selectByExample(commentExample);
+        return new PageInfo<>(comments);
+    }
+
+    @Override
     public PageInfo<Comment> getComments(Integer cid, int page, int limit) {
         if (null != cid) {
             PageHelper.startPage(1, 5);
@@ -61,8 +68,6 @@ public class CommentServiceImpl implements CommentService {
              */
             return pageInfo;
         }
-
-
         return null;
     }
 
