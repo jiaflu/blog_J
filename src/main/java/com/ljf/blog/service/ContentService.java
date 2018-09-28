@@ -12,64 +12,66 @@ public interface ContentService {
      * 发布文章
      * @param content
      */
-    void publish(Content content);
+    void add(Content content);
+
 
     /**
-     * 查询文章返回对跳数据
+     * 根据id读取文章（单篇）
+     * @param id
+     * @return
+     */
+    Content getArticle(String id);
+
+
+    /**
+     * 读取文章（多篇）
      * @param page
      * @param limit
      * @return
      */
-    PageInfo<Content> getContents(int page, int limit);
+    PageInfo<Content> getArticles(Integer page, Integer limit);
 
     /**
-     * 根据id读取文章
-     * @param id
+     * 读取文章（根据分类）
+     * @param mid
+     * @param page
+     * @param limit
      * @return
      */
-    Content getContent(String id);
+    //PageInfo<Content> getArticles(Integer mid, Integer page, Integer limit);
+
+    /***
+     * 读取文章（根据文章标题关键字）
+     * @param keyword
+     * @param page
+     * @param limit
+     * @return
+     */
+    PageInfo<Content> getArticles(String keyword, Integer page, Integer limit);
+
+    /***
+     * 读取文章（根据example）
+     * @param example
+     * @param page
+     * @param limit
+     * @return
+     */
+    PageInfo<Content> getArticles(ContentExample example, Integer page, Integer limit);
+
 
     /**
      * 更新文章
      * @param content
      */
     void update(Content content);
-//
-//    /**
-//     * 查询分类/标签下的文章归档
-//     * @param mid
-//     * @param page
-//     * @param limit
-//     * @return
-//     */
-//    PageInfo<Content> getArticles(int mid, int page, int limit);
-//
-//    /**
-//     * 搜索、分页
-//     * @param keyword
-//     * @param page
-//     * @param limit
-//     * @return
-//     */
-//    PageInfo<Content> getArticles(String keyword, int page, int limit);
-//
-//    /**
-//     *
-//     * @param contentExample
-//     * @param page
-//     * @param limit
-//     * @return
-//     */
-//    PageInfo<Content> getArticlesWithpage(ContentExample contentExample, int page, int limit);
-//
+
+
     /**
      * 根据id删除文章
      * @param cid
      */
-    void delete(int cid);
-//
-//    void updateArticles(Content content);
-//
+    void delete(Integer cid);
+
 //    /**
 //     * 更新原因文章的category
 //     * @param ordinal

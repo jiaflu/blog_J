@@ -42,7 +42,7 @@ public class PageController {
 
     @GetMapping("")
     public String index(HttpServletRequest request) {
-        PageInfo<Content> contentPageInfo = contentService.getContents(1, 999);
+        PageInfo<Content> contentPageInfo = contentService.getArticles(1, 999);
         request.setAttribute("articles", contentPageInfo);
         request.setAttribute("commons", commons);
         return "admin/page_list";

@@ -1,15 +1,10 @@
 package com.ljf.blog;
 
-import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
-import com.ljf.blog.dto.LogActions;
-import com.ljf.blog.mapper.ContentMapper;
 import com.ljf.blog.pojo.Content;
-import com.ljf.blog.pojo.Log;
 import com.ljf.blog.pojo.User;
 import com.ljf.blog.service.ContentService;
 import com.ljf.blog.service.LogService;
-import com.ljf.blog.service.TestService;
 import com.ljf.blog.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -25,8 +20,6 @@ public class BlogJApplicationTests {
 
 	@Autowired
 	UserService userService;
-	@Autowired
-	TestService testService;
 	@Autowired
 	LogService logService;
 	@Autowired
@@ -44,22 +37,10 @@ public class BlogJApplicationTests {
 		}
 	}
 
-	@Test
-	public void listLogs() {
-		List<Log> logs1 = logService.list(1,3);
-		for (Log l : logs1) {
-			System.out.println(l.getCreated());
-		}
-		System.out.println("-------------------------");
-		List<Log> logs2 = logService.list(2,3);
-		for (Log l : logs2) {
-			System.out.println(l.getCreated());
-		}
-	}
 
 	@Test
 	public void listContents() {
-		PageInfo<Content> pageInfo = contentService.getContents(1,5);
+		PageInfo<Content> pageInfo = contentService.getArticles(1,5);
 		System.out.println(pageInfo.getSize());
 		List<Content> contentList = pageInfo.getList();
 		for (Content content: contentList) {
@@ -67,14 +48,5 @@ public class BlogJApplicationTests {
 		}
 	}
 
-	@Test
-	public void test() {
-		try {
-			System.out.println("try");
-			System.exit(1);
-		} finally {
-			System.out.println("finally");
-		}
-	}
 
 }

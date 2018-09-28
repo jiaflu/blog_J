@@ -64,7 +64,7 @@ public class ForeController {
     public String index(HttpServletRequest request, @PathVariable int p, @RequestParam(value = "limit", defaultValue = "10") int limit) {
         // 开启thymeleaf缓存，加快访问速度
         p = p < 0 || p > WebConst.MAX_PAGE ? 1 : p;
-        PageInfo<Content> articles = contentService.getContents(p, limit);
+        PageInfo<Content> articles = contentService.getArticles(p, limit);
         //List<Meta> categories = metaService.getMetaList(Types.CATEGORY.getType(), null, WebConst.MAX_POSTS);
         List<Meta> categories = metaService.getMetas(Types.CATEGORY.getType());
         request.setAttribute("categories", categories);
@@ -84,7 +84,7 @@ public class ForeController {
      */
     @GetMapping(value = {"article/{cid}", "article/{cid}.html"})
     public String getArticle(HttpServletRequest request, @PathVariable String cid) {
-        Content content = contentService.getContent(cid);
+        Content content = contentService.getArticle(cid);
         if (null == content || "draft".equals(content.getStatus())) {
             //404
             return "404 not found";
@@ -105,7 +105,7 @@ public class ForeController {
      */
     @GetMapping(value = {"article/{cid}/preview", "article/{cid}.html"})
     public String articlePreview(HttpServletRequest request, @PathVariable String cid) {
-        Content content = contentService.getContent(cid);
+        Content content = contentService.getArticle(cid);
         if (null == content || "draft".equals(content.getStatus())) {
             //404
             return "404 not found";

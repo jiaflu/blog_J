@@ -16,6 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.websocket.OnClose;
 import java.util.List;
 
 /**
@@ -29,7 +30,7 @@ public class ContentServiceImpl implements ContentService {
     MetaService metaService;
 
     @Override
-    public void publish(Content content) {
+    public void add(Content content) {
         checkContent(content);
         if (StringUtils.isNotBlank(content.getSlug())) {
             if (content.getSlug().length() < 5) {
@@ -66,18 +67,7 @@ public class ContentServiceImpl implements ContentService {
     }
 
     @Override
-    public PageInfo<Content> getContents(int page, int limit) {
-        ContentExample contentExample = new ContentExample();
-        //contentExample.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
-        contentExample.setOrderByClause("created desc");
-        PageHelper.startPage(page, limit);
-        List<Content> contentList = contentMapper.selectByExample(contentExample);
-        PageInfo<Content> pageInfo = new PageInfo<>(contentList);
-        return pageInfo;
-    }
-
-    @Override
-    public Content getContent(String id) {
+    public Content getArticle(String id) {
         //后期需添加Redis，先从redis中读取文章，若无，则从数据库中读
         /*
 
@@ -96,16 +86,72 @@ public class ContentServiceImpl implements ContentService {
         return content;
     }
 
+
+    @Override
+    public PageInfo<Content> getArticles(Integer page, Integer limit) {
+        ContentExample contentExample = new ContentExample();
+        //contentExample.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
+        contentExample.setOrderByClause("created desc");
+        PageHelper.startPage(page, limit);
+        List<Content> contents = contentMapper.selectByExample(contentExample);
+        PageInfo<Content> pageInfo = new PageInfo<>(contents);
+        return pageInfo;
+    }
+
+//    @Override
+//    public PageInfo<Content> getArticles(Integer mid, Integer page, Integer limit) {
+//        ContentExample contentExample = new ContentExample();
+//
+//    }
+
+    @Override
+    public PageInfo<Content> getArticles(String keyword, Integer page, Integer limit) {
+        ContentExample contentExample = new ContentExample();
+        contentExample.createCriteria().andTitleLike("%" + keyword + "%");
+        contentExample.setOrderByClause("created desc");
+        PageHelper.startPage(page, limit);
+        List<Content> contents = contentMapper.selectByExample(contentExample);
+        PageInfo<Content> pageInfo = new PageInfo<>(contents);
+        return pageInfo;
+
+    }
+
+    @Override
+    public PageInfo<Content> getArticles(ContentExample example, Integer page, Integer limit) {
+        PageHelper.startPage(page, limit);
+        List<Content> contents = contentMapper.selectByExample(example);
+        PageInfo<Content> pageInfo = new PageInfo<>(contents);
+        return pageInfo;
+    }
+
     @Override
     public void update(Content content) {
+        checkContent(content);
+        if (StringUtils.isBlank(content.getSlug())) {
+            content.setSlug(null);
+        }
+        int time = DateKit.getCurrentUnixTime();
+        content.setModified(time);
+        Integer cid = content.getCid();
+        //contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
+
         //按主键更新不为null的字段
         contentMapper.updateByPrimaryKeySelective(content);
+        //更新缓存，待添加
+
+        metaService.saveMeta(cid, content.getTags(), Types.TAG.getType());
+        metaService.saveMeta(cid, content.getCategories(), Types.CATEGORY.getType());
     }
 
 
     @Override
-    public void delete(int cid) {
-        contentMapper.deleteByPrimaryKey(cid);
+    public void delete(Integer cid) {
+        Content content = contentMapper.selectByPrimaryKey(cid);
+        if (null != content) {
+            contentMapper.deleteByPrimaryKey(cid);
+            //其他关联属性的删除,如Comment, RelationShip
+        }
+
     }
 
 

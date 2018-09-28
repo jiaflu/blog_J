@@ -23,6 +23,13 @@ public interface MetaService {
      */
     List<Meta> getMetas(String type);
 
+    /**
+     * 保存多个项目
+     * @param cid
+     * @param names
+     * @param type
+     */
+    void saveMeta(Integer cid, String names, String type);
 
     /**
      * 保存
@@ -37,4 +44,10 @@ public interface MetaService {
      * @param mid
      */
     void delete(Integer mid);
+
+    /**
+     * 更新项目
+     * @param meta
+     */
+    void update(Meta meta);
 }

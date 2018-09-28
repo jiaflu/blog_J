@@ -38,7 +38,6 @@ public class MetaServiceImpl implements MetaService {
     }
 
 
-
     @Override
     public List<Meta> getMetas(String type) {
         if (StringUtils.isNotBlank(type)) {
@@ -49,6 +48,50 @@ public class MetaServiceImpl implements MetaService {
             return metas;
         }
         return null;
+    }
+
+    @Override
+    public void saveMeta(Integer cid, String names, String type) {
+        if (null == cid) {
+            throw new TipException("项目关联id不能为空");
+        }
+        if (StringUtils.isNotBlank(names) && StringUtils.isNotBlank(type)) {
+            String[] nameArr = StringUtils.split(names, ",");
+            for (String name : nameArr) {
+                this.saveOrUpdate(cid, name, type);
+            }
+        }
+    }
+
+    private void saveOrUpdate(Integer cid, String name, String type) {
+        MetaExample metaVoExample = new MetaExample();
+        metaVoExample.createCriteria().andTypeEqualTo(type).andNameEqualTo(name);
+        List<Meta> metaVos = metaMapper.selectByExample(metaVoExample);
+
+        int mid;
+        Meta metas;
+        if (metaVos.size() == 1) {
+            metas = metaVos.get(0);
+            mid = metas.getMid();
+        } else if (metaVos.size() > 1) {
+            throw new TipException("查询到多条数据");
+        } else {
+            metas = new Meta();
+            metas.setSlug(name);
+            metas.setName(name);
+            metas.setType(type);
+            metaMapper.insertSelective(metas);
+            mid = metas.getMid();
+        }
+//        if (mid != 0) {
+//            Long count = relationshipService.countById(cid, mid);
+//            if (count == 0) {
+//                RelationshipVoKey relationships = new RelationshipVoKey();
+//                relationships.setCid(cid);
+//                relationships.setMid(mid);
+//                relationshipService.insertVo(relationships);
+//            }
+//        }
     }
 
     @Override
@@ -88,6 +131,14 @@ public class MetaServiceImpl implements MetaService {
             String name = meta.getName();
             metaMapper.deleteByPrimaryKey(mid);
             //删除关系Relationship上关联的meta
+        }
+    }
+
+    @Override
+    public void update(Meta meta) {
+        if (null != meta && null != meta.getMid()) {
+            //根据主键更新非null字段
+            metaMapper.insertSelective(meta);
         }
     }
 }

@@ -13,16 +13,16 @@ public interface CommentService {
      * 插入评论
      * @param comment
      */
-    void insertComment(Comment comment);
+    void add(Comment comment);
+
 
     /**
-     * 获取评论
-     * @param commentExample
-     * @param page
-     * @param limit
+     * 根据主键查询评论
+     * @param coid
      * @return
      */
-    PageInfo<Comment> getCommentsWithPage(CommentExample commentExample, int page, int limit);
+    Comment getComment(Integer coid);
+
 
     /**
      * 获取对应文章下面的评论
@@ -31,15 +31,18 @@ public interface CommentService {
      * @param limit
      * @return
      */
-    PageInfo<Comment> getComments(Integer cid, int page, int limit);
-
+    PageInfo<Comment> getComments(Integer cid, Integer page, Integer limit);
 
     /**
-     * 根据主键查询评论
-     * @param coid
+     * 获取评论
+     * @param commentExample
+     * @param page
+     * @param limit
      * @return
      */
-    Comment getCommentById(Integer coid);
+    PageInfo<Comment> getComments(CommentExample commentExample, Integer page, Integer limit);
+
+
 
     /**
      * 删除评论

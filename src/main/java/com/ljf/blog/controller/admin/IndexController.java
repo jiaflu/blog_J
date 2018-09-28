@@ -50,7 +50,7 @@ public class IndexController {
         Statistics statistics = siteService.getStatistics();
 
         //取最新的5条日志
-        List<Log> logs = logService.list(1, 5);
+        List<Log> logs = logService.getLogs(1, 5);
         request.setAttribute("articles", contents);
         request.setAttribute("comments", comments);
         request.setAttribute("statistics", statistics);

@@ -30,10 +30,11 @@ public class CommentServiceImpl implements CommentService {
     ContentService contentService;
 
     @Override
-    public void insertComment(Comment comment) {
+    public void add(Comment comment) {
+        //Comment的外键为cid（即文章的主键）
         //检查评论输入数据
         checkComment(comment);
-        Content content = contentService.getContent(String.valueOf(comment.getCid()));
+        Content content = contentService.getArticle(String.valueOf(comment.getCid()));
         if (null == content) {
             throw new TipException("文章不存在");
         }
@@ -48,14 +49,16 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public PageInfo<Comment> getCommentsWithPage(CommentExample commentExample, int page, int limit) {
-        PageHelper.startPage(page, limit);
-        List<Comment> comments = commentMapper.selectByExample(commentExample);
-        return new PageInfo<>(comments);
+    public Comment getComment(Integer coid) {
+        if (null != coid) {
+            return commentMapper.selectByPrimaryKey(coid);
+        }
+        return null;
     }
 
+
     @Override
-    public PageInfo<Comment> getComments(Integer cid, int page, int limit) {
+    public PageInfo<Comment> getComments(Integer cid, Integer page, Integer limit) {
         if (null != cid) {
             PageHelper.startPage(1, 5);
             CommentExample commentExample = new CommentExample();
@@ -64,7 +67,6 @@ public class CommentServiceImpl implements CommentService {
             List<Comment> comments = commentMapper.selectByExample(commentExample);
             PageInfo<Comment> pageInfo = new PageInfo<>(comments);
             /*
-
              */
             return pageInfo;
         }
@@ -72,19 +74,14 @@ public class CommentServiceImpl implements CommentService {
     }
 
     @Override
-    public Comment getCommentById(Integer coid) {
-        if (null != coid) {
-            CommentExample commentExample = new CommentExample();
-            commentExample.createCriteria().andCoidEqualTo(coid);
-            List<Comment> comments = commentMapper.selectByExample(commentExample);
-            if (comments.isEmpty()) {
-                return null;
-            } else {
-                return comments.get(0);
-            }
-        }
-        return null;
+    public PageInfo<Comment> getComments(CommentExample commentExample, Integer page, Integer limit) {
+        PageHelper.startPage(page, limit);
+        List<Comment> comments = commentMapper.selectByExample(commentExample);
+        PageInfo<Comment> pageInfo = new PageInfo<>(comments);
+        return pageInfo;
     }
+
+
 
     @Override
     public void delete(Integer coid, Integer cid) {
@@ -93,7 +90,7 @@ public class CommentServiceImpl implements CommentService {
         }
         if (null != coid) {
             commentMapper.deleteByPrimaryKey(coid);
-            Content content = contentService.getContent(String.valueOf(cid));
+            Content content = contentService.getArticle(String.valueOf(cid));
             if (null != content && content.getCommentsNum() > 0) {
                 Content temp = new Content();
                 temp.setCid(cid);
@@ -103,13 +100,18 @@ public class CommentServiceImpl implements CommentService {
         }
     }
 
+    //暂不提供更新评论的功能
     @Override
     public void update(Comment comment) {
 
     }
 
 
-
+    /**
+     * 检查评论输入数据
+     * @param comment
+     * @throws TipException
+     */
     private void checkComment(Comment comment) throws TipException {
         if (null == comment) {
             throw new TipException("评论对象为空");

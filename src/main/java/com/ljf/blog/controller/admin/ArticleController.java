@@ -62,7 +62,7 @@ public class ArticleController {
                         @RequestParam(value = "limit", defaultValue = "15") int limit,
                         HttpServletRequest request) {
         //注：此处查询得出的文章为已发布的文章
-        PageInfo<Content> contentPageInfo = contentService.getContents(page, limit);
+        PageInfo<Content> contentPageInfo = contentService.getArticles(page, limit);
         System.out.println(contentPageInfo.getSize());
         request.setAttribute("articles", contentPageInfo);
         request.setAttribute("commons", commons);
@@ -89,7 +89,7 @@ public class ArticleController {
      */
     @GetMapping("/{cid}")
     public String editArticle(@PathVariable String cid, HttpServletRequest request) {
-        Content content = contentService.getContent(cid);
+        Content content = contentService.getArticle(cid);
         request.setAttribute("contents", content);
         List<Meta> categories = metaService.getMetas(Types.CATEGORY.getType());
         request.setAttribute("categories", categories);
@@ -108,7 +108,7 @@ public class ArticleController {
             content.setCategories("默认分类");
         }
         try {
-            contentService.publish(content);
+            contentService.add(content);
         } catch (Exception e) {
             String msg = "文章发布失败";
             return ExceptionHelper.handlerException(logger, msg, e);
@@ -116,6 +116,7 @@ public class ArticleController {
         return RestResponse.ok();
     }
 
+    //功能与@PostMapping("/publish")类似
     @PostMapping("/modify")
     @ResponseBody
     @Transactional(rollbackFor = TipException.class)
@@ -124,7 +125,7 @@ public class ArticleController {
         content.setAuthorId(user.getUid());
         content.setType(Types.ARTICLE.getType());
         try {
-            //contentService.updateArticle(content);
+            contentService.update(content);
         } catch (Exception e) {
             String msg = "文章编辑失败";
             return ExceptionHelper.handlerException(logger, msg, e);

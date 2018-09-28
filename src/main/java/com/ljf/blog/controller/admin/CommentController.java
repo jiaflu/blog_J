@@ -41,7 +41,7 @@ public class CommentController {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andAuthorIdEqualTo(user.getUid());
         commentExample.setOrderByClause("coid desc");
-        PageInfo<Comment> commentPageInfo = commentService.getCommentsWithPage(commentExample, page, limit);
+        PageInfo<Comment> commentPageInfo = commentService.getComments(commentExample, page, limit);
         request.setAttribute("comments", commentPageInfo);
         request.setAttribute("commons", commons);
         return "admin/comment_list";
@@ -52,7 +52,7 @@ public class CommentController {
     @Transactional(rollbackFor = TipException.class)
     public RestResponse delete(Integer coid) {
         try {
-            Comment comment = commentService.getCommentById(coid);
+            Comment comment = commentService.getComment(coid);
             if (null == comment) {
                 return RestResponse.fail("不存在该评论");
             }
@@ -75,7 +75,7 @@ public class CommentController {
     @Transactional(rollbackFor = TipException.class)
     public RestResponse updateStatus(Integer coid, String status) {
         try {
-            Comment comment = commentService.getCommentById(coid);
+            Comment comment = commentService.getComment(coid);
             comment.setCoid(coid);
             comment.setStatus(status);
             commentService.update(comment);
@@ -97,7 +97,7 @@ public class CommentController {
         if (commentContent.length() > 2000) {
             return RestResponse.fail("请输入2000个字符以内的评论");
         }
-        Comment temp = commentService.getCommentById(coid);
+        Comment temp = commentService.getComment(coid);
         if (null == temp) {
             return RestResponse.fail("不存在该评论");
         }
@@ -115,7 +115,7 @@ public class CommentController {
         comment.setParent(coid);
 
         try {
-            commentService.insertComment(comment);
+            commentService.add(comment);
             return RestResponse.ok();
         } catch (Exception e) {
             String msg = "回复失败";
