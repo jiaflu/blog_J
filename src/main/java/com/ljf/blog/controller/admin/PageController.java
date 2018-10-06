@@ -2,10 +2,13 @@ package com.ljf.blog.controller.admin;
 
 import com.github.pagehelper.PageInfo;
 import com.ljf.blog.bo.RestResponse;
+import com.ljf.blog.constant.WebConst;
 import com.ljf.blog.dto.LogActions;
+import com.ljf.blog.dto.Types;
 import com.ljf.blog.exception.ExceptionHelper;
 import com.ljf.blog.exception.TipException;
 import com.ljf.blog.pojo.Content;
+import com.ljf.blog.pojo.ContentExample;
 import com.ljf.blog.pojo.User;
 import com.ljf.blog.service.ContentService;
 import com.ljf.blog.service.LogService;
@@ -42,7 +45,10 @@ public class PageController {
 
     @GetMapping("")
     public String index(HttpServletRequest request) {
-        PageInfo<Content> contentPageInfo = contentService.getArticles(1, 999);
+        ContentExample example = new ContentExample();
+        example.createCriteria().andTypeEqualTo(Types.PAGE.getType());
+        example.setOrderByClause("created desc");
+        PageInfo<Content> contentPageInfo = contentService.getArticles(example, 1, WebConst.MAX_POSTS);
         request.setAttribute("articles", contentPageInfo);
         request.setAttribute("commons", commons);
         return "admin/page_list";

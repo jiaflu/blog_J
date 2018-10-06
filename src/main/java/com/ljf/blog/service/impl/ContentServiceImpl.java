@@ -69,9 +69,6 @@ public class ContentServiceImpl implements ContentService {
     @Override
     public Content getArticle(String id) {
         //后期需添加Redis，先从redis中读取文章，若无，则从数据库中读
-        /*
-
-         */
 
         Content content = null;
         if (StringUtils.isNotBlank(id)) {
@@ -93,7 +90,8 @@ public class ContentServiceImpl implements ContentService {
         //contentExample.createCriteria().andTypeEqualTo(Types.ARTICLE.getType()).andStatusEqualTo(Types.PUBLISH.getType());
         contentExample.setOrderByClause("created desc");
         PageHelper.startPage(page, limit);
-        List<Content> contents = contentMapper.selectByExample(contentExample);
+        //Content类中content在数据库中为text类型的特殊字段，得使用selectByExampleWithBLOBs
+        List<Content> contents = contentMapper.selectByExampleWithBLOBs(contentExample);
         PageInfo<Content> pageInfo = new PageInfo<>(contents);
         return pageInfo;
     }

@@ -94,7 +94,8 @@ public class ForeController {
         request.setAttribute("commons", commons);
         completeArticle(request, content);
         //updateArticleHit(contents.getCid(), contents.getHits());
-        return THEME + "/page";
+        //return THEME + "/page";
+        return THEME + "/post";
     }
 
     /**

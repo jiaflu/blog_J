@@ -88,22 +88,22 @@
 
 文章表 t_contents
 
-| 名称          | 类型    | 长度   | 主键  | 非空  | 描述       |
-| ------------- | ------- | ------ | ----- | ----- | ---------- |
-| cid           | int     | 10     | true  | true  | 主键,自增  |
-| title         | varchar | 200    | false | false | 文章标题   |
-| slug          | varchar | 200    | false | false | url地址    |
-| creted        | int     | 10     | false | false | 创建时间   |
-| modified      | int     | 10     | false | false | 修改时间   |
-| content       | text    | 无限制 | false | false | 文章内容   |
-| author_id     | int     | 10     | false | false | 作者ID     |
-| type          | varchar | 16     | false | false | 文章类型   |
-| status        | varchar | 16     | false | false | 文章状态   |
-| categories    | varchar | 200    | false | false | 分类       |
-| thumbImg      | varchar | 512    | false | false | 缩略图地址 |
-| hits          | int     | 10     | false | false | 文章点击量 |
-| comments_num  | int     | 10     | false | false | 评论数量   |
-| allow_comment | int     | 1      | false | false | 允许评论   |
+| 名称          | 类型     | 长度       | 主键      | 非空      | 描述         |
+| ------------- | -------- | ---------- | --------- | --------- | ------------ |
+| cid           | int      | 10         | true      | true      | 主键,自增    |
+| title         | varchar  | 200        | false     | false     | 文章标题     |
+| slug          | varchar  | 200        | false     | false     | url地址      |
+| creted        | int      | 10         | false     | false     | 创建时间     |
+| modified      | int      | 10         | false     | false     | 修改时间     |
+| **content**   | **text** | **无限制** | **false** | **false** | **文章内容** |
+| author_id     | int      | 10         | false     | false     | 作者ID       |
+| type          | varchar  | 16         | false     | false     | 文章类型     |
+| status        | varchar  | 16         | false     | false     | 文章状态     |
+| categories    | varchar  | 200        | false     | false     | 分类         |
+| thumbImg      | varchar  | 512        | false     | false     | 缩略图地址   |
+| hits          | int      | 10         | false     | false     | 文章点击量   |
+| comments_num  | int      | 10         | false     | false     | 评论数量     |
+| allow_comment | int      | 1          | false     | false     | 允许评论     |
 
 外键为 cid
 
@@ -214,6 +214,35 @@
 - @PostMapping("/delete")：删除分类
 
 
+
+
+
+
+
+**util包**
+
+- AdminCommons
+  - rand_color()：随机产生颜色选择
+
+
+
+- Commons
+  - **WebConst中initConfig初始化时为空,但运行后`"site_url"`键对应的值为`localhost:8080**`
+
+```java
+public static String site_option(String key, String defaultValue) {
+        if (StringUtils.isBlank(key)) {
+            return "";
+        }
+        String str = WebConst.initConfig.get(key);
+        if (StringUtils.isNotBlank(str)) {
+            //System.out.println(str);
+            return str;
+        } else {
+            return defaultValue;
+        }
+    }
+```
 
 
 
