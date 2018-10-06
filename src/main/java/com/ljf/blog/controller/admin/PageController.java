@@ -59,8 +59,6 @@ public class PageController {
         return "admin/page_edit";
     }
 
-
-
     @RequestMapping("delete")
     @ResponseBody
     @Transactional(rollbackFor = TipException.class)

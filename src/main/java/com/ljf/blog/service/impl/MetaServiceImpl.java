@@ -1,5 +1,6 @@
 package com.ljf.blog.service.impl;
 
+import com.ljf.blog.dto.Types;
 import com.ljf.blog.exception.TipException;
 import com.ljf.blog.mapper.MetaMapper;
 import com.ljf.blog.pojo.Meta;
@@ -139,6 +140,20 @@ public class MetaServiceImpl implements MetaService {
         if (null != meta && null != meta.getMid()) {
             //根据主键更新非null字段
             metaMapper.insertSelective(meta);
+        }
+    }
+
+    @Override
+    public void updateCount(String category, int increment) {
+        MetaExample example = new MetaExample();
+        example.createCriteria().andTypeEqualTo(Types.CATEGORY.getType()).andNameEqualTo(category);
+        List<Meta> metas = metaMapper.selectByExample(example);
+        if (metas.size() == 1) {
+            Meta tmp = metas.get(0);
+            tmp.setCount(metas.get(0).getCount() + increment);
+            metaMapper.updateByPrimaryKeySelective(tmp);
+        } else {
+            throw new TipException("更新Meta count错误");
         }
     }
 }

@@ -246,3 +246,15 @@ public static String site_option(String key, String defaultValue) {
 
 
 
+
+
+
+
+
+
+**待解决问题**
+
+- TAG cloud 处对应标签下的文章数量不能查看
+
+
+-   showCategoryUrl(c)

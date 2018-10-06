@@ -63,7 +63,9 @@ public class ContentServiceImpl implements ContentService {
         String tags = content.getTags();
         String category = content.getCategories();
 
-        //metaService.saveMeta(cid,);
+        metaService.updateCount(category, 1);
+        metaService.saveMeta(cid, tags, Types.TAG.getType());
+        metaService.saveMeta(cid, category, Types.CATEGORY.getType());
     }
 
     @Override
@@ -147,6 +149,7 @@ public class ContentServiceImpl implements ContentService {
         Content content = contentMapper.selectByPrimaryKey(cid);
         if (null != content) {
             contentMapper.deleteByPrimaryKey(cid);
+            metaService.updateCount(content.getCategories(), -1);
             //其他关联属性的删除,如Comment, RelationShip
         }
 

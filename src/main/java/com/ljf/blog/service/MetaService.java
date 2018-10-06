@@ -23,6 +23,7 @@ public interface MetaService {
      */
     List<Meta> getMetas(String type);
 
+
     /**
      * 保存多个项目
      * @param cid
@@ -50,4 +51,10 @@ public interface MetaService {
      * @param meta
      */
     void update(Meta meta);
+
+    /**
+     * 更新count
+     * @param category
+     */
+    void updateCount(String category, int increment);
 }

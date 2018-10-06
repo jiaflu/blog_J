@@ -15,12 +15,7 @@ public class Meta {
 
     private Integer parent;
 
-    /* 非数据库字段 */
     private Integer count;
-
-    public Integer getCount() { return count; }
-
-    public void setCount(Integer count) { this.count = count; }
 
     public Integer getMid() {
         return mid;
@@ -76,5 +71,13 @@ public class Meta {
 
     public void setParent(Integer parent) {
         this.parent = parent;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 }
