@@ -76,7 +76,8 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public PageInfo<Comment> getComments(CommentExample commentExample, Integer page, Integer limit) {
         PageHelper.startPage(page, limit);
-        List<Comment> comments = commentMapper.selectByExample(commentExample);
+        //List<Comment> comments = commentMapper.selectByExample(commentExample);
+        List<Comment> comments = commentMapper.selectByExampleWithBLOBs(commentExample);
         PageInfo<Comment> pageInfo = new PageInfo<>(comments);
         return pageInfo;
     }

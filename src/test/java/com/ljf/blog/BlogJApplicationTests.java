@@ -43,5 +43,15 @@ public class BlogJApplicationTests {
 	}
 
 
+	private int count = 10;
+	private Object o = new Object();
+
+	@Test
+	public void m() {
+		synchronized (this) {
+			count--;
+			System.out.println(Thread.currentThread().getName() + " count = " + count);
+		}
+	}
 
 }

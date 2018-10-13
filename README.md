@@ -111,15 +111,16 @@
 
 标签表 t_metas
 
-| 名称        | 类型    | 长度 | 主键  | 非空  | 描述       |
-| ----------- | ------- | ---- | ----- | ----- | ---------- |
-| mid         | int     | 10   | true  | true  | 主键，自增 |
-| name        | varchar | 200  | false | false | 名称       |
-| slug        | varchar | 200  | false | false | 说明       |
-| type        | varchar | 200  | false | false | 类型       |
-| description | varchar | 200  | false | false | 描述       |
-| sort        | int     | 10   | false | false | 排序       |
-| parent      | int     | 10   | false | false | 父标签     |
+| 名称        | 类型    | 长度 | 主键  | 非空  | 描述             |
+| ----------- | ------- | ---- | ----- | ----- | ---------------- |
+| mid         | int     | 10   | true  | true  | 主键，自增       |
+| name        | varchar | 200  | false | false | 名称             |
+| slug        | varchar | 200  | false | false | 说明             |
+| type        | varchar | 200  | false | false | 类型             |
+| description | varchar | 200  | false | false | 描述             |
+| sort        | int     | 10   | false | false | 排序             |
+| parent      | int     | 10   | false | false | 父标签           |
+| count       | int     | 10   | false | false | 对应标签文章数量 |
 
 外键为 mid
 
@@ -213,7 +214,9 @@
 - @PostMapping("/save")：保存分类
 - @PostMapping("/delete")：删除分类
 
+**CommentController @RequestMapping("admin/comments")**：关于评论的操作
 
+- 
 
 
 
@@ -255,6 +258,9 @@ public static String site_option(String key, String defaultValue) {
 **待解决问题**
 
 - TAG cloud 处对应标签下的文章数量不能查看
+  - 重构t_metas数据表，增加count属性
 
 
 -   showCategoryUrl(c)
+
+- 主页的评论

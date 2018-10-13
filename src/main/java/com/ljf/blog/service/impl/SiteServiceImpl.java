@@ -48,7 +48,8 @@ public class SiteServiceImpl implements SiteService {
         CommentExample example = new CommentExample();
         example.setOrderByClause("created desc");
         PageHelper.startPage(1, limit);
-        List<Comment> comments = commentMapper.selectByExample(example);
+        //List<Comment> comments = commentMapper.selectByExample(example);
+        List<Comment> comments = commentMapper.selectByExampleWithBLOBs(example);
         return comments;
     }
 

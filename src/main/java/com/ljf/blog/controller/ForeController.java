@@ -1,9 +1,11 @@
 package com.ljf.blog.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.ljf.blog.bo.RestResponse;
 import com.ljf.blog.constant.WebConst;
 import com.ljf.blog.controller.admin.IndexController;
 import com.ljf.blog.dto.Types;
+import com.ljf.blog.exception.ExceptionHelper;
 import com.ljf.blog.exception.TipException;
 import com.ljf.blog.pojo.Comment;
 import com.ljf.blog.pojo.Content;
@@ -13,18 +15,20 @@ import com.ljf.blog.service.ContentService;
 import com.ljf.blog.service.MetaService;
 import com.ljf.blog.service.SiteService;
 import com.ljf.blog.util.Commons;
+import com.ljf.blog.util.MyUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
 import java.util.List;
 
 
@@ -119,14 +123,26 @@ public class ForeController {
         return THEME + "/post";
     }
 
+    @RequestMapping("logout")
+    public void logout(HttpSession session, HttpServletResponse response) {
+        session.removeAttribute(WebConst.LOGIN_SESSION_KEY);
+        Cookie cookie = new Cookie(WebConst.USER_IN_COOKIE, "");
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        try {
+            response.sendRedirect(Commons.site_title());
+        } catch (IOException e) {
+            logger.error(e.getMessage(), e);
+        }
+    }
 
 
-    /**
-     * 更新点击次数
-     *
-     * @param cid
-     * @param chits
-     */
+//    /**
+//     * 更新点击次数
+//     *
+//     * @param cid
+//     * @param chits
+//     */
 //    @Transactional(rollbackFor = TipException.class)
 //    protected void updateArticleHit(Integer cid, Integer chits) {
 //        Integer hits = cache.hget("article", "hits");
@@ -144,6 +160,54 @@ public class ForeController {
 //            cache.hset("article", "hits", 1);
 //        }
 //    }
+
+
+    @PostMapping("comment")
+    @ResponseBody
+    @Transactional(rollbackFor = TipException.class)
+    public RestResponse comment(HttpServletRequest request, HttpServletResponse response,
+                                Integer cid, Integer coid, String author, String mail, String url, String text, String _csrf_token) {
+        //获取来源页地址
+//        String ref = request.getHeader("Referer");
+//        if (StringUtils.isBlank(ref) || StringUtils.isBlank(_csrf_token)) {
+//            return RestResponse.fail("Bad request");
+//        }
+//        String token = cache.hget(Types.CSRF_TOKEN.getType(), _csrf_token);
+//        if (StringUtils.isBlank(token)) {
+//            return RestResponseBo.fail("Bad request");
+//        }
+        if (null == cid || StringUtils.isBlank(text)) {
+            return RestResponse.fail("请输入完整后评论");
+        }
+        if (StringUtils.isNotBlank(author) && author.length() > 50) {
+            return RestResponse.fail("姓名过长");
+        }
+        if (StringUtils.isNotBlank(mail) && !MyUtils.isEmail(mail)) {
+            return RestResponse.fail("请输入正确的邮箱格式");
+        }
+        if (text.length() > 200) {
+            return RestResponse.fail("请输入200个字符以内的评论");
+        }
+        //检验性判断
+        Comment comment = new Comment();
+        comment.setAuthor(author);
+        comment.setCid(cid);
+        comment.setIp(request.getRemoteAddr());
+        comment.setUrl(url);
+        comment.setContent(text);
+        comment.setMail(mail);
+        comment.setParent(coid);
+        try {
+            commentService.add(comment);
+            return RestResponse.ok();
+        } catch (Exception e) {
+            String msg = "评论发布失败";
+            return ExceptionHelper.handlerException(logger, msg, e);
+        }
+
+
+    }
+
 
     /**
      * 查询文章的评论信息，并补充到里面，返回前端

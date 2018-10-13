@@ -1,6 +1,7 @@
 package com.ljf.blog.controller.admin;
 
 
+import com.ljf.blog.constant.WebConst;
 import com.ljf.blog.exception.ExceptionHelper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -56,7 +57,7 @@ public class AuthController {
         try {
             //登入失败则抛出错误
             User user = userService.login(username, password);
-            request.getSession().setAttribute("login_user", user);
+            request.getSession().setAttribute(WebConst.LOGIN_SESSION_KEY, user);
             logService.add(LogActions.LOGIN.getAction(), null, request.getRemoteAddr(), user.getUid());
         } catch (Exception e) {
             //Cookie处理，密码错误3次以上10分钟后再试，功能代加
@@ -69,8 +70,8 @@ public class AuthController {
 
     @GetMapping("/logout")
     public String logout(HttpSession session, HttpServletRequest request,HttpServletResponse response) {
-        User user = (User) session.getAttribute("login_user");
-        session.removeAttribute("login_user");
+        User user = (User) session.getAttribute(WebConst.LOGIN_SESSION_KEY);
+        session.removeAttribute(WebConst.LOGIN_SESSION_KEY);
         //Cookie处理，待加
 
         return "admin/login";

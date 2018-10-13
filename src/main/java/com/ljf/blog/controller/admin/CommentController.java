@@ -39,7 +39,7 @@ public class CommentController {
                         @RequestParam(value = "limit", defaultValue = "15") int limit, HttpServletRequest request) {
         User user = (User) request.getSession().getAttribute("login_user");
         CommentExample commentExample = new CommentExample();
-        commentExample.createCriteria().andAuthorIdEqualTo(user.getUid());
+        commentExample.createCriteria().andAuthorIdNotEqualTo(user.getUid());
         commentExample.setOrderByClause("coid desc");
         PageInfo<Comment> commentPageInfo = commentService.getComments(commentExample, page, limit);
         request.setAttribute("comments", commentPageInfo);
