@@ -21,16 +21,17 @@ public class WebMvcConfig extends WebMvcConfigurationSupport {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         //String[] excludes = new String[]{"/", "/admin/login", "/static/**"};
-        registry.addInterceptor(baseInterceptor).excludePathPatterns(Arrays.asList("/static/**", "/templates/**"));
+        //registry.addInterceptor(baseInterceptor).excludePathPatterns(Arrays.asList("/static/**", "/templates/**"));
+        registry.addInterceptor(baseInterceptor);
     }
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         //registry.addResourceHandler("/upload/**").addResourceLocations("file:"+ MyUtils.getUploadFilePath()+"upload/");
         registry.addResourceHandler("/**")
-                .addResourceLocations("classpath:/resources/")
-                .addResourceLocations("classpath:/static/")
-                .addResourceLocations("classpath:/templates");
+                //.addResourceLocations("classpath:/resources/")
+                .addResourceLocations("classpath:/static/");
+                //.addResourceLocations("classpath:/templates");
 
         super.addResourceHandlers(registry);
     }
