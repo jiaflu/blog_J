@@ -2,6 +2,7 @@ package com.ljf.blog.service.impl;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.ljf.blog.constant.ContentKey;
 import com.ljf.blog.dto.Types;
 import com.ljf.blog.exception.TipException;
 import com.ljf.blog.mapper.ContentMapper;
@@ -11,13 +12,17 @@ import com.ljf.blog.pojo.ContentExample;
 import com.ljf.blog.service.ContentService;
 import com.ljf.blog.service.MetaService;
 import com.ljf.blog.util.DateKit;
+import com.ljf.blog.util.RedisKeyUtil;
 import com.ljf.blog.util.Tools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.ListOperations;
+import org.springframework.data.redis.core.ValueOperations;
 import org.springframework.stereotype.Service;
 
 import javax.websocket.OnClose;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by lujiafeng on 2018/9/13.
@@ -28,6 +33,11 @@ public class ContentServiceImpl implements ContentService {
     ContentMapper contentMapper;
     @Autowired
     MetaService metaService;
+
+    @Autowired
+    private ValueOperations<String, Object> valueOperations;
+    @Autowired
+    private RedisService redisService;
 
     @Override
     public void add(Content content) {
@@ -70,15 +80,36 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public Content getArticle(String id) {
-        //后期需添加Redis，先从redis中读取文章，若无，则从数据库中读
-
-        Content content = null;
-        if (StringUtils.isNotBlank(id)) {
-            if (Tools.isNumber(id)) {
-                content = contentMapper.selectByPrimaryKey(Integer.valueOf(id));
-                if (null != content) {
-                    content.setHits(content.getHits() + 1);
-                    contentMapper.updateByPrimaryKey(content);
+        //先从redis中读取文章信息
+        String contentKey = RedisKeyUtil.getKey(ContentKey.TABLE_NAME, ContentKey.MAJOR_KEY, id);
+        Content content = (Content) valueOperations.get(contentKey);
+        if (content != null) {
+            System.out.println("从redis读取数据");
+        }
+        if (content == null) {
+            System.out.println("从mysql读取数据");
+            if (StringUtils.isNotBlank(id)) {
+                if (Tools.isNumber(id)) {
+                    content = contentMapper.selectByPrimaryKey(Integer.valueOf(id));
+                    if (null != content) {
+                        content.setHits(content.getHits() + 1);
+                        contentMapper.updateByPrimaryKey(content);
+                    }
+                    System.out.println("将查询数据插入redis");
+                    valueOperations.set(contentKey, content);
+                    redisService.expireKey(contentKey, ContentKey.LIVE_TIME, TimeUnit.HOURS);
+                    return content;
+                } else {
+                    ContentExample example = new ContentExample();
+                    example.createCriteria().andSlugEqualTo(id);
+                    List<Content> contents = contentMapper.selectByExampleWithBLOBs(example);
+                    if (contents.isEmpty()) {
+                        throw new TipException("query content by id and return is not one");
+                    }
+                    content = contents.get(0);
+                    System.out.println("将查询数据插入redis");
+                    valueOperations.set(contentKey, content);
+                    redisService.expireKey(contentKey, ContentKey.LIVE_TIME, TimeUnit.HOURS);
                 }
             }
         }
@@ -126,6 +157,7 @@ public class ContentServiceImpl implements ContentService {
 
     @Override
     public void update(Content content) {
+        // 检查文章输入
         checkContent(content);
         if (StringUtils.isBlank(content.getSlug())) {
             content.setSlug(null);
@@ -135,9 +167,11 @@ public class ContentServiceImpl implements ContentService {
         Integer cid = content.getCid();
         //contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
 
-        //按主键更新不为null的字段
+        // 按主键更新不为null的字段
         contentMapper.updateByPrimaryKeySelective(content);
-        //更新缓存，待添加
+        // 更新缓存
+        String contentKey = RedisKeyUtil.getKey(ContentKey.TABLE_NAME, ContentKey.MAJOR_KEY, content.getCid().toString());
+        redisService.deleteKey(contentKey);
 
         metaService.saveMeta(cid, content.getTags(), Types.TAG.getType());
         metaService.saveMeta(cid, content.getCategories(), Types.CATEGORY.getType());

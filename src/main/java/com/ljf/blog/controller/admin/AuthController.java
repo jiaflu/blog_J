@@ -49,8 +49,8 @@ public class AuthController {
 
     //页面跳转由js处理
     @PostMapping("/login")
-    @ResponseBody
-    public RestResponse doLogin(String username, String password, HttpServletRequest request, HttpServletResponse response) {
+    //@ResponseBody
+    public String doLogin(String username, String password, HttpServletRequest request, HttpServletResponse response) {
         username = HtmlUtils.htmlEscape(username);
         password = HtmlUtils.htmlEscape(password);
 
@@ -63,9 +63,12 @@ public class AuthController {
             //Cookie处理，密码错误3次以上10分钟后再试，功能代加
 
             String msg = "登入失败";
-            return ExceptionHelper.handlerException(logger, msg, e);
+            return "admin/login";
+            //return ExceptionHelper.handlerException(logger, msg, e);
         }
-        return RestResponse.ok();
+        //return RestResponse.ok();
+        System.out.println("登入成功");
+        return "redirect:index";
     }
 
     @GetMapping("/logout")
