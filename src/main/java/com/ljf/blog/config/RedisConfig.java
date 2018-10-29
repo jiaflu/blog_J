@@ -15,7 +15,9 @@ import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
+import org.springframework.cache.interceptor.KeyGenerator;
 
+import java.lang.reflect.Method;
 import java.time.Duration;
 
 /**
@@ -27,6 +29,28 @@ import java.time.Duration;
 public class RedisConfig extends CachingConfigurerSupport {
 
     /**
+     * 生成key的策略
+     * @return
+     */
+    @Bean
+    public KeyGenerator keyGenerator() {
+        return new KeyGenerator() {
+            @Override
+            public Object generate(Object target, Method method, Object... params) {
+                StringBuilder sb = new StringBuilder();
+                sb.append(target.getClass().getName());
+                sb.append(method.getName());
+                for (Object obj : params) {
+                    sb.append(obj.toString());
+                }
+                return sb.toString();
+            }
+        };
+    }
+
+
+    /**
+     * 设置redis作为默认缓存工具
      * @param connectionFactory
      * @return
      */
@@ -40,7 +64,7 @@ public class RedisConfig extends CachingConfigurerSupport {
     }
 
     /**
-     * 项目启动时此方法先被注册成bean被spring管理
+     * RedisTemplate配置
      * @param factory
      * @return
      */
